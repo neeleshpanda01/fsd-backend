@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: subscription-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: JWT_SECRET
+        value: your_super_secure_jwt_secret_key_change_this_in_production
+        scope: run
+      - key: MONGODB_URI
+        value: mongodb://Neelesh:28122005@ac-sgowtyn-shard-00-02.pm9uodc.mongodb.net:27017,ac-sgowtyn-shard-00-00.pm9uodc.mongodb.net:27017,ac-sgowtyn-shard-00-01.pm9uodc.mongodb.net:27017/scms?ssl=true&authSource=admin&retryWrites=true&w=majority&appName=ClusterFSD
+        scope: run
+    healthCheckPath: /health
+    startOnDeploy: false
