@@ -13,4 +13,3 @@ services:
       - key: MONGODB_URI
         sync: false
     healthCheckPath: /health
-    startOnDeploy: true
